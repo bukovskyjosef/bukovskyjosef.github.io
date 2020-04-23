@@ -92,8 +92,10 @@ body {
 }
 
 .item-name {
+    height: 40px;
     font-size: 20px;
     font-weight: bolder;
+    line-height: 1em;
     margin-bottom: 10px;
     font-family: 'Baloo Paaji 2', cursive;
 }

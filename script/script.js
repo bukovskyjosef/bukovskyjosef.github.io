@@ -157,8 +157,7 @@ function jsonDataArray(array) {
                 </div>
             </div>
             <!-- tu by měl být popis -->
-            <br>obrázek: ${radek}.png
-            <p>Stručný text o produktu, bla bla blabla bla blabla bla blabla bla blabla bla </p>
+            <p><b><i>obrázek: ${radek}.png</i></b><br>Stručný text o produktu, bla bla blabla bla blabla bla blabla bla blabla bla </p>
             <div class="item-short-description">${longDescription}</div>
         </div>`)
   }
