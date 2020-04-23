@@ -67,7 +67,7 @@ function mouseOut() {
     }
 }
 
-readTextFile("inventura.csv")
+readTextFile("src/inventura.csv")
 
 function readTextFile(file) {
   var rawFile = new XMLHttpRequest();
