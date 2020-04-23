@@ -1,0 +1,138 @@
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#nav-bar {
+    transition: top 0.3s;
+    /* Transition effect when sliding down (and up) */
+    font-family: "Josefin Sans", sans-serif;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    background-color: #229954;
+    width: 100%;
+    z-index: 1;
+}
+#nav-bar button {
+    background-color: #229954;
+    font-size: 24px;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+#nav-bar button:hover, button:focus {
+    background: #0053ba;
+}
+
+#nav-bar button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+    background: #0053ba;
+}
+#nav-bar button:active {
+    transform: scale(0.99);
+}
+
+.page-content {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.columns {
+    display: flex;
+}
+
+.item {
+    position: relative;
+    border: 1px solid gray;
+    margin: 10px;
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.75);
+}
+
+.item-image {
+    width: 140px;
+    height: 140px;
+    left: 0px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.item-params {
+    width: 140px;
+}
+
+.cart {
+    background-image: url("../src/cart.png");
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.cart-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item-name {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    font-family: 'Baloo Paaji 2', cursive;
+}
+
+.item-meta {
+    display: none;
+}
+
+.volume {
+    display: flex;
+    justify-content: space-between;
+}
+
+.original-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 10px;
+    color: red;
+}
+
+.original-price {
+    text-decoration: line-through;
+}
+
+.customer-price {
+    margin-top: 5px;
+}
+
+.item-customer-price {
+    font-size: 24px;
+    text-align: right;
+}
+
+/* .item-customer-price:after {
+    content: " Kč";
+} */
+
+.item-short-description {
+    clear: both;
+    margin-top: 8px;
+}
