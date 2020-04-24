@@ -94,7 +94,7 @@ function parseTextToArray(TextForParsing) {
 function jsonDataArray(array) {
   var headers = array[0].split(';');
   var jsonData = [];
-  for (var i = 1, length = array.length; i < length; i++) {
+  for (var i = 0, length = array.length; i < length; i++) {
     var row = array[i].split(';');
     var data = {};
     for (var x = 0; x < row.length; x++) {
