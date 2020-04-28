@@ -1,7 +1,3 @@
-let allVisible = true
-let samponyVisible = true
-let regeneraceVisible = true
-
 $(".all-button").on("click", function() {
     $(`.item`).show()
 })
@@ -10,29 +6,9 @@ $(".menu-buton").on("click", function() {
     let category =  $(this).attr("id")
     
     $(`.item`).hide()
-    // $(`.item[category="Šampony"]`).show()
 
     $(`.item[category=${category}]`).show()
-       
-    // if (allVisible = true){
-        
-    //     // ponechej šampony aktivní
-    //     samponyVisible = true
-        
-    //     // označ jako aktivní kategorii šampony
-    //     $("#sampony").css({"background-color":"red"})
 
-    //     //sryj ostatní kategorie
-    //     regeneraceVisible = false
-    //     $(".item[category=regenerace]").hide();
-    //     allVisible = false //již není zobrazeno všechno
-    // } else {
-    //     if (samponyVisible === true) {
-    //         samponyVisible = false
-    //     } else {
-    //         samponyVisioble = true
-    //     }
-    // }
 })
 
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
@@ -161,15 +137,17 @@ function jsonDataArray(array) {
             <div class="item-short-description">${longDescription}</div>
         </div>`)
   }
-  
   $(".page-content").html(vygenerovaneHTML)
-  // log all objects to console
-  // jsonData.forEach((line) => {
-  //   console.log(line)
-  // })
 }
 
+$(".shoppping-cart-overview").after().on("click", function() {
+    console.log("yeah")
+    $(`.shoppping-cart-overview`).hide()
+})
 
+$(".shopping-cart").on("click", function() {
+    $(`.shoppping-cart-overview`).show()
+})
 
 
 
