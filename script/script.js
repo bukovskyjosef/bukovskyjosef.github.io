@@ -50,7 +50,7 @@ function readTextFile(file) {
   rawFile.open("GET", file, false);
   rawFile.onreadystatechange = function () {
     if (rawFile.readyState === 4) {
-      if (rawFile.status === 200 || rawFile.status == 0) {
+        if (rawFile.status === 200 || rawFile.status == 0) {
         var textFromFile = rawFile.responseText;
         parseTextToArray(textFromFile)
       }
@@ -95,10 +95,10 @@ function jsonDataArray(array) {
       let subname = jsonData[radek].subname
       let warehouse = jsonData[radek].warehouse
       let sex = jsonData[radek].sex
-      let longDescription = jsonData[radek].longdescription
+      let shortDescription = jsonData[radek].shortDescription
 
       vygenerovaneHTML = vygenerovaneHTML.concat(
-      `<div class="item" category="${category}">
+      `<div class="item" category="${category}" id="${id}">
             <div class="item-name">${name}</div>
             <div class="item-meta">
                 <div class="item-full-name">${name}</div>
@@ -133,8 +133,10 @@ function jsonDataArray(array) {
                 </div>
             </div>
             <!-- tu by měl být popis -->
-            <p><b><i>obrázek: ${radek}.png</i></b><br>Stručný text o produktu, bla bla blabla bla blabla bla blabla bla blabla bla </p>
-            <div class="item-short-description">${longDescription}</div>
+            <div class="item-short-description">${shortDescription}</div>
+            <div class="read-more">Číst více</div>
+            <div class="item-long-description"></div>
+            <div class="read-less">Číst méně</div>
         </div>`)
   }
   $(".page-content").html(vygenerovaneHTML)
@@ -149,5 +151,37 @@ $(".shopping-cart").on("click", function() {
     $(`.shoppping-cart-overview`).show()
 })
 
+$(".read-more").on("click", function() {
+    // $(this).parent().siblings().fadeTo(500, 0.33) //musím vypnout, protože to nastavuje i pro skryté itemy :(
+    // $(this).parent().fadeTo(500, 1.00) //musím vypnout, protože to nastavuje i pro skryté itemy :(
+    // $(this).parent().animate({ "width": "500px", "height": "500px" }, "slow" )
+    var file2 = "src/descriptions/" + $(this).parent().attr("id") + ".html"
+    var rawFile2 = new XMLHttpRequest();
+    var textFromFile = ""
+    
+    rawFile2.open("GET", file2, false);
+    rawFile2.onreadystatechange = function () {
+        if (rawFile2.readyState === 4) {
+          if (rawFile2.status === 200 || rawFile2.status == 0) {
+            textFromFile = rawFile2.responseText;
+          }
+        }
+      }
+      rawFile2.send(null);
 
+    $(this).css("display","none") //skryje číst více
+    $(this).prev().css("display","none") // schová short-description
+    $(this).next().next().css("display","block") // zobrazí číst méně
+    $(this).next().html(textFromFile); // nastaví html divu item-long-description
+})
+
+$(".read-less").on("click", function() {
+    // $(this).parent().animate({ "width": "300px", "height": "300px" }, "slow" )
+    // $(this).parent().siblings().fadeTo(500, 1.00) //musím vypnout, protože to nastavuje i pro skryté itemy :(
+    // $(this).parent().fadeTo(500, 1.00) //musím vypnout, protože to nastavuje i pro skryté itemy :(
+    $(this).css("display","none") // skryje číst méně
+    $(this).prev().prev().prev().css("display","block") // zobrazí číst více
+    $(this).prev().prev().css("display","block") // zoobrazí short-description
+    $(this).prev().html("") // nastvací html divu item-long-description
+})
 
